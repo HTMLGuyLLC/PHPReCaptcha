@@ -10,8 +10,7 @@ A wrapper class for ReCaptcha to make integrating into your site dead simple.
 (SSL_VERIFY_PEER/SSL_VERIFY_HOST = false) - I recommend you add a cacert and change these to true.
 * If ANYTHING fails, it will default to allowing the request. This way you don't miss out if recaptcha is down or something.
 
-### To use:
-===
+## To use: 
 
 Create an account on Google and navigate to their ReCaptcha service here:
 ```link
