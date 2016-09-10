@@ -60,7 +60,7 @@ grecaptcha.reset();
 
 ##Implementation suggestions/ideas:
 
- 1. You can add a global AJAX "complete" callback which updates any captcha on the page by default by using the following:
+* You can add a global AJAX "complete" callback which updates any captcha on the page by default by using the following:
 
 ```javascript
 $(document).ajaxComplete(function(event,request,settings){
@@ -71,13 +71,13 @@ $(document).ajaxComplete(function(event,request,settings){
 });
 ```
 
-2. If you're using a templating engine or tokenized HTML, you can set a variable as the return from display()
+* If you're using a templating engine or tokenized HTML, you can set a variable as the return from display()
 ```php
 $captcha = ReCaptcha->display();
 ```
 
- 3. Not ideal, but you could just include the JS file as-needed by putting it in the display() method
- ...assuming you only call display() once per page.
+* Not ideal, but you could just include the JS file as-needed by putting it in the display() method
+...assuming you only call display() once per page.
 
 Dependencies
 =======
