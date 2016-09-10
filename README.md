@@ -2,9 +2,8 @@
 A wrapper class for ReCaptcha to make integrating into your site dead simple.
 
 ### Created with love by VersatilityWerks http://flwebsites.biz
-### MIT Licensed (do as you please)
  
-### Important Notes:
+##Important Notes:
 
 * Will use Guzzle by default, if available...otherwise fallsback to CURL with non-ideal settings
 (SSL_VERIFY_PEER/SSL_VERIFY_HOST = false) - I recommend you add a cacert and change these to true.
@@ -59,7 +58,7 @@ Use the following in your AJAX complete callback:
 grecaptcha.reset();
 ```
 
-### Implementation suggestions/ideas:
+##Implementation suggestions/ideas:
 
  1. You can add a global AJAX "complete" callback which updates any captcha on the page by default by using the following:
 
