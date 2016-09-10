@@ -11,6 +11,7 @@ A wrapper class for ReCaptcha to make integrating into your site dead simple.
 * If ANYTHING fails, it will default to allowing the request. This way you don't miss out if recaptcha is down or something.
 
 ### To use:
+===
 
 Create an account on Google and navigate to their ReCaptcha service here:
 ```link
@@ -79,3 +80,19 @@ $captcha = ReCaptcha->display();
 
  3. Not ideal, but you could just include the JS file as-needed by putting it in the display() method
  ...assuming you only call display() once per page.
+
+Dependencies
+=======
+PHP, CURL, ReCaptcha, Guzzle (not required)
+
+License
+=======
+M.I.T.
+
+Copyright (c) 2015 Versatility Werks
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
