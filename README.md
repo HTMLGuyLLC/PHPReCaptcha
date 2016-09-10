@@ -33,13 +33,13 @@ Include the following in your HTML:
 <script src='https://www.google.com/recaptcha/api.js'></script>
 ```
 
-Use the following where you want to display the captcha:
+Use the following where you want to display the captcha (presumably in a form):
 
 ```php
 echo ReCaptcha::display();
 ```
 
-To validate a captcha, run the verify() method.
+To validate a captcha after it's been completed and the form has been posted, run the verify() method.
 
 * If you don't provide the user's IP address, it'll fallback to $_SERVER['REMOTE_ADDR']
 * If you don't provide the user's response, it'll fallback to grabbing it from the $_POST
