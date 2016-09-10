@@ -22,6 +22,11 @@ Open the ReCaptcha.php file:
  1. Swap out {{YOUR_SECRET}} for the Secret key on Google.
  2. Swap out {{YOUR_SITE_KEY}} for the Site Key on google.
  3. Add an error handler (log it, send an email, etc - this is for issue regarding connection and such. Not captcha failures)
+ 
+Include this class (or use an autoloader - preferred)
+```php
+include('ReCaptcha.php');
+```
 
 Include the following in your HTML:
 ```html
