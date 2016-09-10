@@ -1,6 +1,14 @@
 <?php
-
 /**
+ * ReCaptcha wrapper class
+ * Version 1.0.0
+ * 
+ * Created with love by VersatilityWerks
+ * http://flwebsites.biz
+ * 
+ * MIT License
+ * 
+ * 
  * Displays and tests a capcha from Google's ReCaptcha service.
  *
  * Will use Guzzle by default, if available...otherwise fallsback to CURL with non-ideal settings
