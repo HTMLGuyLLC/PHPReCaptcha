@@ -34,13 +34,13 @@ namespace VersatilityWerks;
  *   <script src='https://www.google.com/recaptcha/api.js'></script>
  *
  * Use the following where you want to display the captcha:
- *   <?php echo ReCaptcha::display(); ?>
+ *   <?php echo \VersatilityWerks\ReCaptcha::display(); ?>
  *
  * To validate a captcha, run the verify() method.
  * If you don't provide the user's IP address, it'll fallback to $_SERVER['REMOTE_ADDR']
  * If you don't provide the user's response, it'll fallback to grabbing it from the $_POST
  *    <?php
- *    if( !ReCaptcha::verify($users_response, $users_ip_address) )
+ *    if( !\VersatilityWerks\ReCaptcha::verify($users_response, $users_ip_address) )
  *    {
  *      //error
  *    }
