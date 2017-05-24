@@ -1,5 +1,5 @@
 {
-    "name": "VersatilityWerks/PHPReCaptcha",
+    "name": "versatilitywerks/phprecaptcha",
     "description": "Makes integrating Google's ReCaptcha simple!",
     "version": "1.0.0",
     "type": "library",
