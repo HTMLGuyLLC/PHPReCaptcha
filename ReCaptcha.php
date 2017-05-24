@@ -1,4 +1,6 @@
 <?php
+namespace VersatilityWerks;
+
 /**
  * ReCaptcha wrapper class
  * Version 1.0.0
