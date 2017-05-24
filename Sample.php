@@ -1,12 +1,12 @@
 <?php
-//include the class
-include('ReCaptcha.php');
+//include the class from composer
+include('vendor/autoload.php');
 
 //if the form was posted
 if( !empty($_POST) )
 {
   //verify the captcha
-  if( !ReCaptcha::verify() )
+  if( !\VersatilityWerks\ReCaptcha::verify() )
   {
     echo 'Failed!<br>';
   }
@@ -25,7 +25,7 @@ if( !empty($_POST) )
     <form action='Sample.php' method='post'>
       <!-- Display the captcha here -->
       <?php
-      echo ReCaptcha::display();
+      echo \VersatilityWerks\ReCaptcha::display();
       ?>
       <input type='submit' value='Submit'>
     </form>
