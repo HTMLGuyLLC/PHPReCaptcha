@@ -18,7 +18,7 @@ https://www.google.com/recaptcha/admin
  
 Include this package with composer:
 ```bash
-composer require VersatilityWerks/PHPReCaptcha
+composer require versatilitywerks/phprecaptcha
 ```
 
 Register a new site, then keep the tab open with your Site Key and Secret visible.
