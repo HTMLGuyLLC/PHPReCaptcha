@@ -9,24 +9,24 @@ A wrapper class for ReCaptcha to make integrating into your site dead simple.
 (SSL_VERIFY_PEER/SSL_VERIFY_HOST = false) - I recommend you add a cacert and change these to true.
 * If ANYTHING fails, it will default to allowing the request. This way you don't miss out if recaptcha is down or something.
 
-## To use: 
+## To use:
 
 Create an account on Google and navigate to their ReCaptcha service here:
 ```link
 https://www.google.com/recaptcha/admin
 ```
+ 
+Include this package with composer:
+```bash
+composer require VersatilityWerks/PHPReCaptcha
+```
 
 Register a new site, then keep the tab open with your Site Key and Secret visible.
 
-Open the ReCaptcha.php file:
+Open the src/ReCaptcha.php file:
  1. Swap out {{YOUR_SECRET}} for the Secret key on Google.
  2. Swap out {{YOUR_SITE_KEY}} for the Site Key on google.
- 3. Add an error handler (log it, send an email, etc - this is for issue regarding connection and such. Not captcha failures)
- 
-Include this class (or use an autoloader - preferred)
-```php
-include('ReCaptcha.php');
-```
+ 3. Add an error handler (log it, send an email, etc - this is for issue regarding connection and such. Not captcha failures
 
 Include the following in your HTML:
 ```html
@@ -36,7 +36,7 @@ Include the following in your HTML:
 Use the following where you want to display the captcha (presumably in a form):
 
 ```php
-echo ReCaptcha::display();
+echo \VersatilityWerks\ReCaptcha::display();
 ```
 
 To validate a captcha after it's been completed and the form has been posted, run the verify() method.
@@ -45,12 +45,12 @@ To validate a captcha after it's been completed and the form has been posted, ru
 * If you don't provide the user's response, it'll fallback to grabbing it from the $_POST
 
 ```php
-if( !ReCaptcha::verify() )
+if( !\VersatilityWerks\ReCaptcha::verify() )
 {
  //error
 }
 //OR
-if( !ReCaptcha::verify($users_response, $users_ip_address) )
+if( !\VersatilityWerks\ReCaptcha::verify($users_response, $users_ip_address) )
 {
  //error
 }
@@ -78,7 +78,7 @@ $(document).ajaxComplete(function(event,request,settings){
 
 * If you're using a templating engine or tokenized HTML, you can set a variable as the return from display()
 ```php
-$captcha = ReCaptcha->display();
+$captcha = \VersatilityWerks\ReCaptcha->display();
 ```
 
 * Not ideal, but you could just include the JS file as-needed by putting it in the display() method
