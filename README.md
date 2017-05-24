@@ -23,10 +23,9 @@ composer require VersatilityWerks/PHPReCaptcha
 
 Register a new site, then keep the tab open with your Site Key and Secret visible.
 
-Open the src/ReCaptcha.php file:
+Copy the google_credentials.example.ini and create a file named google_credentials.ini in the same folder:
  1. Swap out {{YOUR_SECRET}} for the Secret key on Google.
  2. Swap out {{YOUR_SITE_KEY}} for the Site Key on google.
- 3. Add an error handler (log it, send an email, etc - this is for issue regarding connection and such. Not captcha failures
 
 Include the following in your HTML:
 ```html
@@ -36,7 +35,8 @@ Include the following in your HTML:
 Use the following where you want to display the captcha (presumably in a form):
 
 ```php
-echo \VersatilityWerks\ReCaptcha::display();
+$captcha = new \VersatilityWerks\ReCaptcha();
+echo $captcha->display();
 ```
 
 To validate a captcha after it's been completed and the form has been posted, run the verify() method.
@@ -45,14 +45,21 @@ To validate a captcha after it's been completed and the form has been posted, ru
 * If you don't provide the user's response, it'll fallback to grabbing it from the $_POST
 
 ```php
-if( !\VersatilityWerks\ReCaptcha::verify() )
+try
 {
- //error
+    $captcha = new \VersatilityWerks\ReCaptcha();
+    if( !$captcha->verify() )
+    {
+        //user failed to complete the captcha correctly
+    }
 }
-//OR
-if( !\VersatilityWerks\ReCaptcha::verify($users_response, $users_ip_address) )
+catch(\VersatilityWerks\ReCaptchaExeption $e)
 {
- //error
+    //do something specific for errors with recaptcha or this class
+}
+catch(\Exception $e)
+{
+    //catch any unexpected exceptions
 }
 ```
 
@@ -63,7 +70,7 @@ Use the following in your AJAX complete callback:
 grecaptcha.reset();
 ```
 
-##Implementation suggestions/ideas:
+##Implementation idea:
 
 * You can add a global AJAX "complete" callback which updates any captcha on the page by default by using the following:
 
@@ -75,14 +82,6 @@ $(document).ajaxComplete(function(event,request,settings){
   }
 });
 ```
-
-* If you're using a templating engine or tokenized HTML, you can set a variable as the return from display()
-```php
-$captcha = \VersatilityWerks\ReCaptcha->display();
-```
-
-* Not ideal, but you could just include the JS file as-needed by putting it in the display() method
-...assuming you only call display() once per page.
 
 Dependencies
 =======

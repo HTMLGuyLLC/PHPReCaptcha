@@ -2,11 +2,14 @@
 //include the class from composer
 include('vendor/autoload.php');
 
+//errors could occur here or during verify, you should always wrap in try{}catch{} blocks, see details in README.
+$captcha = new \VersatilityWerks\ReCaptcha();
+
 //if the form was posted
 if( !empty($_POST) )
 {
   //verify the captcha
-  if( !\VersatilityWerks\ReCaptcha::verify() )
+  if( !$captcha->verify() )
   {
     echo 'Failed!<br>';
   }
@@ -25,7 +28,7 @@ if( !empty($_POST) )
     <form action='Sample.php' method='post'>
       <!-- Display the captcha here -->
       <?php
-      echo \VersatilityWerks\ReCaptcha::display();
+      echo $captcha->display();
       ?>
       <input type='submit' value='Submit'>
     </form>
