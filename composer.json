@@ -1,0 +1,20 @@
+{
+    "name": "VersatilityWerks/PHPReCaptcha",
+    "description": "Makes integrating Google's ReCaptcha simple!",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shane Stebner",
+            "email": "shane@verswerks.com",
+            "homepage": "http://flwebsites.biz",
+            "role": "Founder/Developer"
+        }
+    ]
+    "autoload": {
+        "psr-4": {
+            "VersatilityWerks\\": "src/",
+        }
+    }
+}
