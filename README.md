@@ -40,10 +40,6 @@ echo $captcha->display();
 ```
 
 To validate a captcha after it's been completed and the form has been posted, run the verify() method.
-
-* If you don't provide the user's IP address, it'll fallback to $_SERVER['REMOTE_ADDR']
-* If you don't provide the user's response, it'll fallback to grabbing it from the $_POST
-
 ```php
 try
 {
@@ -85,13 +81,13 @@ $(document).ajaxComplete(function(event,request,settings){
 
 Dependencies
 =======
-PHP, CURL, ReCaptcha, Guzzle (not required)
+PHP, CURL, ReCaptcha, Guzzle (optional)
 
 License
 =======
 MIT License
 
-Copyright (c) 2016 Shane Stebner
+Copyright (c) 2017 Shane Stebner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
