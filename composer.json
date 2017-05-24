@@ -11,7 +11,7 @@
             "homepage": "http://flwebsites.biz",
             "role": "Founder/Developer"
         }
-    ]
+    ],
     "autoload": {
         "psr-4": {
             "VersatilityWerks\\": "src/",
