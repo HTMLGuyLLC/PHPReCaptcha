@@ -1,7 +1,7 @@
 # PHP - ReCaptcha
 A wrapper class for ReCaptcha to make integrating into your site dead simple.
 
-### Created with love by VersatilityWerks http://flwebsites.biz
+### Created with love by HTMLGuy, LLC
  
 ##Important Notes:
 
