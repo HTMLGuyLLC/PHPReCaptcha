@@ -1,15 +1,12 @@
 {
-    "name": "versatilitywerks/phprecaptcha",
+    "name": "htmlguyllc/phprecaptcha",
     "description": "Makes integrating Google's ReCaptcha simple!",
     "version": "1.0.0",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Shane Stebner",
-            "email": "shane@verswerks.com",
-            "homepage": "http://flwebsites.biz",
-            "role": "Founder/Developer"
+            "name": "HTMLGuy, LLC"
         }
     ],
     "suggest": {
@@ -17,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "VersatilityWerks\\": "src/"
+            "HTMLGuyLLC\\": "src/"
         }
     }
 }
