@@ -35,7 +35,7 @@ Include the following in your HTML:
 Use the following where you want to display the captcha (presumably in a form):
 
 ```php
-$captcha = new \VersatilityWerks\ReCaptcha();
+$captcha = new \HTMLGuyLLC\ReCaptcha();
 echo $captcha->display();
 ```
 
@@ -43,13 +43,13 @@ To validate a captcha after it's been completed and the form has been posted, ru
 ```php
 try
 {
-    $captcha = new \VersatilityWerks\ReCaptcha();
+    $captcha = new \HTMLGuyLLC\ReCaptcha();
     if( !$captcha->verify() )
     {
         //user failed to complete the captcha correctly
     }
 }
-catch(\VersatilityWerks\ReCaptchaExeption $e)
+catch(\HTMLGuyLLC\ReCaptchaExeption $e)
 {
     //do something specific for errors with recaptcha or this class
 }
@@ -87,7 +87,7 @@ License
 =======
 MIT License
 
-Copyright (c) 2017 Shane Stebner
+Copyright (c) 2018 Shane Stebner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
