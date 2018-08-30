@@ -1,5 +1,5 @@
 <?php
-namespace VersatilityWerks;
+namespace HTMLGuyLLC;
 
 /**
  * ReCaptcha wrapper class
