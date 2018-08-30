@@ -1,5 +1,5 @@
 <?php
-namespace VersatilityWerks;
+namespace HTMLGuyLLC;
 
 class ReCaptchaException extends \Exception
 {
