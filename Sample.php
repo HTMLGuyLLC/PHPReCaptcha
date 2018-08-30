@@ -3,7 +3,7 @@
 include('vendor/autoload.php');
 
 //errors could occur here or during verify, you should always wrap in try{}catch{} blocks, see details in README.
-$captcha = new \VersatilityWerks\ReCaptcha();
+$captcha = new \HTMLGuyLLC\ReCaptcha();
 
 //if the form was posted
 if( !empty($_POST) )
