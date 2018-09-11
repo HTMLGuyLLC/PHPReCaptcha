@@ -26,6 +26,15 @@ Register a new site, then keep the tab open with your Site Key and Secret visibl
 Copy the google_credentials.example.ini and create a file named google_credentials.ini in the same folder:
  1. Swap out {{YOUR_SECRET}} for the Secret key on Google.
  2. Swap out {{YOUR_SITE_KEY}} for the Site Key on google.
+ 
+ OR set your credentials in environment variables with the following keys:
+ 1. RECAPTCHA_SECRET
+ 2. RECAPTCHA_SITE_KEY
+ 
+ OR store our credentials however you want and pass them during instantiation:
+ ```php
+ $captcha = new \HTMLGuyLLC\ReCaptcha($secret, $site_key);
+ ```
 
 Include the following in your HTML:
 ```html
