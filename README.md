@@ -31,7 +31,7 @@ ___
  1. RECAPTCHA_SECRET
  2. RECAPTCHA_SITE_KEY
  
-+ __OR__ store our credentials however you want and pass them during instantiation:
++ __OR__ store your credentials however you want, and pass them during instantiation:
  ```php
  $captcha = new \HTMLGuyLLC\ReCaptcha($secret, $site_key);
  ```
