@@ -93,6 +93,15 @@ Dependencies
 =======
 PHP, CURL, ReCaptcha, Guzzle (optional)
 
+Changelog
+======
+# 1.0
+Initial
+# 1.1
+Include support for environment variables
+# 1.2
+Allow override of curl verify host/peer options in verify() method
+
 License
 =======
 MIT License
