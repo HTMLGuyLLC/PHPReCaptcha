@@ -16,12 +16,12 @@ Create an account on Google and navigate to their ReCaptcha service here:
 https://www.google.com/recaptcha/admin
 ```
 ___
-Include this package with composer:
+Register a new site, then keep the tab open with your Site Key and Secret visible.
+___
+Include PHPRecaptcha in your site with composer:
 ```bash
 composer require htmlguyllc/phprecaptcha
 ```
-___
-Register a new site, then keep the tab open with your Site Key and Secret visible.
 ___
 + __Either__ Copy the google_credentials.example.ini and create a file named google_credentials.ini in the same folder:
  1. Swap out {{YOUR_SECRET}} for the Secret key on Google.
