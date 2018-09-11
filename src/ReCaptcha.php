@@ -3,7 +3,6 @@ namespace HTMLGuyLLC;
 
 /**
  * ReCaptcha wrapper class
- * Version 1.1.0
  *
  * https://github.com/HTMLGuyLLC/PHPReCaptcha
  */
