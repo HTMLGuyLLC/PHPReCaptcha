@@ -12,8 +12,13 @@ class ReCaptcha
     const VERIFY_ENDPOINT = 'siteverify';
     const POST_KEY = 'g-recaptcha-response';
     
+    /**
+    *
+    * @param string|null $secret
+    * @param string|null $site_key
+    */
     public function __construct($secret = null, $site_key = null)
-    {
+    {   
         //if not overwriting both
         if( $secret === null || $site_key === null )
         {
@@ -89,7 +94,7 @@ class ReCaptcha
     /**
      * Verify the user's response
      */
-    public function verify($response = false, $ip_address = false)
+    public function verify($response = false, $ip_address = false, $curl_verify_peer = false, $curl_verify_host = false)
     {
         ///if no IP address, just immediately deny the request
         if(!$ip_address)
@@ -135,7 +140,7 @@ class ReCaptcha
         //fallback - use CURL
         else
         {
-            $body = ReCaptcha::curl_validate($send);
+            $body = ReCaptcha::curl_validate($send, $curl_verify_peer, $curl_verify_host);
         }
 
         //if something failed with the curl request
@@ -231,7 +236,7 @@ class ReCaptcha
      * @return mixed
      * @internal param $url
      */
-    public static function curl_validate($post)
+    public static function curl_validate($post, $curl_verify_peer, $curl_verify_host)
     {
         try
         {
@@ -242,8 +247,8 @@ class ReCaptcha
             curl_setopt($ch, CURLOPT_URL, ReCaptcha::API_BASE . '/' . ReCaptcha::VERIFY_ENDPOINT);
             curl_setopt($ch, CURLOPT_POST, count($post));
             curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $curl_verify_host);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $curl_verify_peer);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
             //execute post
