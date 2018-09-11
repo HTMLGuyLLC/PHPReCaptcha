@@ -3,14 +3,9 @@ namespace HTMLGuyLLC;
 
 /**
  * ReCaptcha wrapper class
- * Version 1.0.0
- * 
- * Created with love by VersatilityWerks
- * http://flwebsites.biz
- * 
- * MIT License
+ * Version 1.1.0
  *
- * Class ReCaptcha
+ * https://github.com/HTMLGuyLLC/PHPReCaptcha
  */
 class ReCaptcha
 {
@@ -23,25 +18,45 @@ class ReCaptcha
         //if not overwriting both
         if( $secret === null || $site_key === null )
         {
-            $creds = parse_ini_file(__DIR__.'/../google_credentials.ini');
-
-            if( !$creds )
+            //get from environment variables
+            $secret = getenv('RECAPTCHA_SECRET');
+            $site_key = getenv('RECAPTCHA_SITE_KEY');
+            
+            //if one is set and one is missing
+            if( ($secret && !$site_key) || (!$secret && $site_key) )
             {
-                throw new ReCaptchaException("ReCaptcha google credentials file did not return any values");
+                throw new ReCaptchaException("One of your ReCaptcha google credentials are missing from the environment variables");
             }
-
-            if( !isset($creds['secret']) && $secret === null )
+            
+            //if both are set
+            if( $secret && $site_key )
             {
-                throw new ReCaptchaException("ReCaptcha google credentials file missing secret");
-            }
-
-            if( !isset($creds['site_key']) && $site_key === null )
+                $this->secret = $secret;
+                $this->site_key = $site_key;
+            } 
+            //otherwise none are set, fallback to .ini
+            else
             {
-                throw new ReCaptchaException("ReCaptcha google credentials file missing site key");
-            }
+                $creds = parse_ini_file(__DIR__.'/../google_credentials.ini');
 
-            $this->secret = $creds['secret'];
-            $this->site_key = $creds['site_key'];
+                if( !$creds )
+                {
+                    throw new ReCaptchaException("ReCaptcha google credentials file did not return any values");
+                }
+
+                if( !isset($creds['secret']) && $secret === null )
+                {
+                    throw new ReCaptchaException("ReCaptcha google credentials file missing secret");
+                }
+
+                if( !isset($creds['site_key']) && $site_key === null )
+                {
+                    throw new ReCaptchaException("ReCaptcha google credentials file missing site key");
+                }
+
+                $this->secret = $creds['secret'];
+                $this->site_key = $creds['site_key'];
+            }
         }
         else
         {
