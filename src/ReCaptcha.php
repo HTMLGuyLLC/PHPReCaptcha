@@ -171,13 +171,6 @@ class ReCaptcha
         //if they sent back success = false, the user DID NOT respond correctly, so return false to block the request
         if(isset($decoded['success']) && $decoded['success'] === false)
         {
-            //if not due to user entry error, send us an email
-            if(isset($decoded['error-codes']) && isset($decoded['error-codes'][0]) && $decoded['error-codes'][0] != 'invalid-input-response')
-            {
-                ReCaptcha::error("Recaptcha replied with failure, but it was not due to the user's response: " . $body);
-                return true;
-            }
-
             return false;
         }
         //malformed response (no success param)
