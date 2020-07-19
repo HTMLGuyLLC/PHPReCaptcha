@@ -234,7 +234,7 @@ class ReCaptcha
         try
         {
             //open connection
-            $ch = curl_init();
+            $ch = \curl_init();
 
             //set the url, number of POST vars, POST data
             curl_setopt($ch, CURLOPT_URL, ReCaptcha::API_BASE . '/' . ReCaptcha::VERIFY_ENDPOINT);
