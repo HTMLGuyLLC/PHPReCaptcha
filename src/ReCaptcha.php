@@ -11,6 +11,9 @@ class ReCaptcha
     const API_BASE = 'https://www.google.com/recaptcha/api';
     const VERIFY_ENDPOINT = 'siteverify';
     const POST_KEY = 'g-recaptcha-response';
+
+    private $secret;
+    private $site_key;
     
     /**
     *
